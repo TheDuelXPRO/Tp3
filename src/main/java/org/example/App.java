@@ -1,13 +1,24 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
+
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Slf4j
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    private static final  Logger logger = LoggerFactory.getLogger(App.class);
+
+    public static void main(String[] args) {
+        logger.info("M0ensagem de log.");
+
+        logger.debug("Mensagem de debug");
+
+        try{
+            throw new RuntimeException("Erro Simulado.");
+        } catch (Exception e){
+            logger.error("Erro encontrado");
+        }
     }
 }
